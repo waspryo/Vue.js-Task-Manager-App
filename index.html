@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Task manager App</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-</head>
-<body>
-    <div id="app">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
+    />
+  </head>
+  <body>
+    <div id="app" class="pushable">
+      <div class="ui sidebar inverted vertical menu">
+        Task Manager
+      </div>
+      <div class="ui conatiner">
         {{message}}
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
