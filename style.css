@@ -7,3 +7,7 @@
 .task.todo {
     background: lightgoldenrodyellow;
 }
+.description {
+    color: slategrey;
+    font-style: italic;
+}
