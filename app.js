@@ -3,8 +3,18 @@ var app = new Vue({
    components: {
     'task': {props: ['task'],
     template: `
-    <div class="ui segment task" v-bind:class="task.completed ? 'done' : 'todo' ">
-      {{task.id}} {{task.name}}: {{task.description}} completed? {{task.completed}}
+    <div class="ui segment task"
+      v-bind:class="task.completed ? 'done' : 'todo' ">
+        <div class="ui grid">
+          <div class="left floated twelve wide column">
+            <div class="checkbox">
+              <input type="checkbox" name="task" :checked="task.completed">
+              <label>{{ task.name }} <span class="description">{{ task.description }}</span></label>
+            </div>
+          </div>
+          <div class="right floated three wide column">
+          </div>
+        </div>
     </div>
     `}
    },
