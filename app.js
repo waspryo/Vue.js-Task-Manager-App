@@ -1,8 +1,9 @@
 var app = new Vue({
   el: "#app",
-   components: {
-    'task': {props: ['task'],
-    template: `
+  components: {
+    task: {
+      props: ["task"],
+      template: `
     <div class="ui segment task"
       v-bind:class="task.completed ? 'done' : 'todo' ">
         <div class="ui grid">
@@ -18,8 +19,9 @@ var app = new Vue({
           </div>
         </div>
     </div>
-    `}
-   },
+    `
+    }
+  },
   data: {
     tasks: [
       {
@@ -62,17 +64,34 @@ var app = new Vue({
     toggleDone: function(event, id) {
       event.stopImmediatePropagation();
       let task = this.tasks.find(item => item.id == id);
-      
+
       if (task) {
         task.completed = !task.completed;
-        console.log('task completed')
+        console.log("task completed");
       }
     },
     editTask: function(event, id) {
       let task = this.tasks.find(item => item.id == id);
 
       if (task) {
-        this.task = { name: task.name, description: task.description, completed: task.completed };
+        this.task = {
+          id: id,
+          name: task.name,
+          description: task.description,
+          completed: task.completed
+        };
+      }
+    },
+    updateTask: function(event, id) {
+      event.stopImmediatePropagation();
+      event.preventDefault();
+
+      let task = this.tasks.find(item => item.id == id);
+
+      if (task) {
+        task.name = this.task.name;
+        task.description = this.task.description;
+        task.completed = this.task.completed
       }
     },
     deleteTask: function(event, id) {
@@ -83,7 +102,7 @@ var app = new Vue({
       if (taskIndex > -1) {
         this.$delete(this.tasks, taskIndex);
       }
-      console.log('task deleted')
+      console.log("task deleted");
     }
-  },
+  }
 });
