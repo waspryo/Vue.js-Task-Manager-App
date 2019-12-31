@@ -47,6 +47,7 @@ var app = new Vue({
         completed: true
       }
     ],
+    task: {},
     message: "Hello underworld"
   },
   computed: {
@@ -69,8 +70,9 @@ var app = new Vue({
     },
     editTask: function(event, id) {
       let task = this.tasks.find(item => item.id == id);
+
       if (task) {
-        console.log(task)
+        this.task = task;
       }
     },
     deleteTask: function(event, id) {
